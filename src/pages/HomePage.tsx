@@ -123,12 +123,12 @@ export default function HomePage({ setActivePage }: HomePageProps) {
   return (
     <div className="bg-warm-white">
       {/* ─── HERO ─────────────────────────────────────────────────────────── */}
-      <section ref={heroRef} className="relative min-h-[85svh] sm:min-h-[90svh] lg:h-screen lg:min-h-[700px] lg:max-h-[1000px] overflow-hidden">
-        <motion.div style={{ y: heroY }} className="absolute inset-0 scale-110">
+      <section ref={heroRef} className="hero-mobile-shell relative lg:h-screen lg:min-h-[700px] lg:max-h-[1000px] overflow-hidden">
+        <motion.div style={{ y: heroY }} className="absolute inset-0 scale-100 sm:scale-110">
           <img
             src={IMAGES.hero}
             alt="Aerial view of Phewa Lake and Himalayas from Pokhara"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-[center_30%] sm:object-center"
             loading="eager"
             fetchPriority="high"
           />
@@ -137,15 +137,15 @@ export default function HomePage({ setActivePage }: HomePageProps) {
 
         <motion.div
           style={{ opacity: heroOpacity }}
-          className="relative z-10 h-full flex flex-col justify-end pb-12 sm:pb-20 lg:pb-28"
+          className="hero-mobile-content relative z-10 lg:h-full lg:flex lg:flex-col lg:justify-end lg:pb-28"
         >
-          <div className="container-luxury">
+          <div className="container-luxury w-full">
             <div className="max-w-3xl">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="flex items-center gap-3 mb-6"
+                className="hidden sm:flex items-center gap-3 mb-5 sm:mb-6"
               >
                 <div className="divider-gold" />
                 <span className="label-tag text-stone">Lakeside, Pokhara, Nepal</span>
@@ -155,43 +155,39 @@ export default function HomePage({ setActivePage }: HomePageProps) {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, delay: 0.5 }}
-                className="hero-headline text-ivory text-4xl sm:text-5xl lg:text-7xl xl:text-8xl mb-4 sm:mb-6"
+                className="hero-headline text-ivory mb-3 sm:mb-5 lg:text-7xl xl:text-8xl"
               >
-                Stay close to
-                <br />
-                <em className="text-stone">everything</em>, yet
-                <br />
-                feel away from it all
+                Stay close to{' '}
+                <em className="text-stone">everything</em>, yet feel away from it all
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.7 }}
-                className="hero-subtext max-w-lg mb-8 sm:mb-10"
+                className="hero-subtext max-w-md sm:max-w-lg mb-6 sm:mb-8"
               >
-                A boutique eco-luxury retreat in the heart of Lakeside, where the Himalayas
-                meet warm Nepalese hospitality.
+                A boutique eco-luxury retreat in Lakeside, where the Himalayas meet warm Nepalese hospitality.
               </motion.p>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.9 }}
-                className="flex flex-wrap gap-4"
+                className="btn-mobile-stack"
               >
                 <button
                   onClick={() => {
                     setActivePage('contact');
                     setTimeout(() => document.getElementById('booking-form')?.scrollIntoView({ behavior: 'smooth' }), 100);
                   }}
-                  className="btn-gold"
+                  className="btn-gold btn-mobile-full"
                 >
                   Reserve Your Stay <ArrowRight size={15} />
                 </button>
                 <button
                   onClick={() => setActivePage('rooms')}
-                  className="btn-luxury-outline"
+                  className="btn-luxury-outline btn-mobile-full"
                 >
                   Explore Rooms
                 </button>

@@ -53,6 +53,8 @@
     scroll-behavior: smooth;
     font-size: 16px;
     text-rendering: optimizeLegibility;
+    overflow-x: clip;
+    max-width: 100%;
   }
 
   body {
@@ -63,7 +65,9 @@
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden;
+    overflow-x: clip;
+    max-width: 100%;
+    width: 100%;
   }
 
   ::selection {
@@ -139,10 +143,10 @@
   .gradient-hero {
     background: linear-gradient(
       to bottom,
-      rgba(26, 25, 23, 0.55) 0%,
-      rgba(26, 25, 23, 0.15) 35%,
-      rgba(26, 25, 23, 0.25) 65%,
-      rgba(26, 25, 23, 0.75) 100%
+      rgba(26, 25, 23, 0.75) 0%,
+      rgba(26, 25, 23, 0.35) 30%,
+      rgba(26, 25, 23, 0.45) 60%,
+      rgba(26, 25, 23, 0.88) 100%
     );
   }
   .gradient-charcoal-overlay {
@@ -326,6 +330,66 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+  }
+
+  /* Mobile hero layout */
+  .hero-mobile-shell {
+    min-height: 100svh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-mobile-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 4.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .hero-mobile-content {
+      justify-content: flex-end;
+      padding-top: 5.5rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-mobile-content {
+      padding-top: 0;
+      padding-bottom: 0;
+      justify-content: flex-end;
+    }
+  }
+
+  /* Full-width mobile CTAs */
+  .btn-mobile-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .btn-mobile-stack {
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: auto;
+    }
+  }
+
+  .btn-mobile-full {
+    width: 100%;
+    justify-content: center;
+  }
+
+  @media (min-width: 640px) {
+    .btn-mobile-full {
+      width: auto;
+    }
   }
 
   /* Labels & dividers */
@@ -720,9 +784,10 @@ img[loading="lazy"].loaded {
   .btn-luxury,
   .btn-luxury-outline,
   .btn-gold {
-    padding: 0.875rem 1.5rem;
-    font-size: 0.75rem;
-    min-height: 44px;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    min-height: 48px;
   }
 
   .section-pad {
@@ -734,25 +799,32 @@ img[loading="lazy"].loaded {
   }
 
   .container-luxury {
-    padding: 0 1.25rem;
+    padding: 0 1.5rem;
   }
 
   .section-heading {
-    font-size: clamp(1.875rem, 7vw, 2.5rem);
+    font-size: clamp(1.75rem, 6.5vw, 2.25rem);
   }
 
   .section-heading-light {
-    font-size: clamp(1.875rem, 7vw, 2.5rem);
+    font-size: clamp(1.75rem, 6.5vw, 2.25rem);
   }
 
   .hero-headline {
-    font-size: clamp(2rem, 9vw, 3.5rem);
-    line-height: 1.1;
+    font-size: clamp(1.625rem, 7.5vw, 2.25rem) !important;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
   }
 
   .hero-subtext {
-    font-size: 1rem;
-    line-height: 1.7;
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    max-width: 100%;
+  }
+
+  .label-tag {
+    font-size: 0.625rem;
+    letter-spacing: 0.22em;
   }
 
   .stat-number {
@@ -772,7 +844,7 @@ img[loading="lazy"].loaded {
 
 @media (max-width: 480px) {
   .container-luxury {
-    padding: 0 1rem;
+    padding: 0 1.25rem;
   }
 }
 

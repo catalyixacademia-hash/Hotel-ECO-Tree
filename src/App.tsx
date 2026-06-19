@@ -36,7 +36,7 @@ export default function App() {
   const PageComponent = pageComponents[activePage];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col w-full overflow-x-clip">
       <Navigation activePage={activePage} setActivePage={handleSetPage} />
 
       <main className="flex-1 pt-0 pb-[calc(4.5rem+env(safe-area-inset-bottom))] lg:pb-0">

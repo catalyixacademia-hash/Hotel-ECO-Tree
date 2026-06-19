@@ -64,7 +64,7 @@ export default function ContactPage({ setActivePage: _setActivePage }: ContactPa
   return (
     <div className="bg-warm-white">
       {/* Hero */}
-      <section className="relative h-[260px] sm:h-[320px] lg:h-[400px] overflow-hidden mt-[80px] lg:mt-[104px]">
+      <section className="relative h-[260px] sm:h-[320px] lg:h-[400px] overflow-hidden mt-14 sm:mt-16 lg:mt-[104px]">
         <img
           src="https://images.pexels.com/photos/37836764/pexels-photo-37836764.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=1400"
           alt="Phewa Lake boats at dusk Pokhara Nepal"

@@ -155,7 +155,7 @@ export default function GalleryPage() {
   return (
     <div className="bg-charcoal min-h-screen">
       {/* Hero */}
-      <section className="relative h-[240px] sm:h-[300px] lg:h-[380px] overflow-hidden mt-[80px] lg:mt-[104px]">
+      <section className="relative h-[240px] sm:h-[300px] lg:h-[380px] overflow-hidden mt-14 sm:mt-16 lg:mt-[104px]">
         <img
           src="https://images.pexels.com/photos/15280106/pexels-photo-15280106.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=1400"
           alt="Gallery header - Himalayan views from Pokhara"

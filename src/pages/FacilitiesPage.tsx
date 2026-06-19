@@ -97,7 +97,7 @@ export default function FacilitiesPage({ setActivePage }: FacilitiesPageProps) {
   return (
     <div className="bg-warm-white">
       {/* Hero */}
-      <section className="relative h-[280px] sm:h-[340px] lg:h-[440px] overflow-hidden mt-[80px] lg:mt-[104px]">
+      <section className="relative h-[280px] sm:h-[340px] lg:h-[440px] overflow-hidden mt-14 sm:mt-16 lg:mt-[104px]">
         <img
           src="https://images.pexels.com/photos/24807133/pexels-photo-24807133.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=600&w=1400"
           alt="Rooftop pool with mountain views at Hotel Eco Tree"

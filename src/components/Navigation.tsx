@@ -51,10 +51,12 @@ export default function Navigation({ activePage, setActivePage }: NavProps) {
         initial={{ y: -10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 pt-[env(safe-area-inset-top)] ${
           scrolled || !isHome
             ? 'bg-warm-white/95 backdrop-blur-md shadow-[0_1px_20px_rgba(26,25,23,0.06)] border-b border-ivory-dark'
-            : 'bg-transparent'
+            : isHome
+              ? 'lg:bg-transparent bg-gradient-to-b from-charcoal/85 via-charcoal/50 to-transparent'
+              : 'bg-transparent'
         }`}
       >
         {/* Top strip */}
@@ -72,31 +74,31 @@ export default function Navigation({ activePage, setActivePage }: NavProps) {
 
         {/* Main nav */}
         <div className="container-luxury">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+          <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
             {/* Logo */}
             <button
               onClick={() => handleNav('home')}
-              className="flex flex-col items-start group"
+              className="flex items-center group min-w-0"
               aria-label="Hotel Eco Tree Pokhara - Home"
             >
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
                 {/* Tree icon */}
-                <div className={`w-8 h-8 flex items-center justify-center rounded-full border transition-all duration-500 ${
+                <div className={`w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0 flex items-center justify-center rounded-full border transition-all duration-500 ${
                   scrolled || !isHome
                     ? 'border-forest bg-forest'
                     : 'border-ivory/60 bg-forest/30'
                 }`}>
-                  <svg width="16" height="18" viewBox="0 0 16 18" fill="none" className={scrolled || !isHome ? 'text-ivory' : 'text-stone'}>
+                  <svg width="14" height="16" viewBox="0 0 16 18" fill="none" className={`sm:w-4 sm:h-[18px] ${scrolled || !isHome ? 'text-ivory' : 'text-stone'}`}>
                     <path d="M8 1 L14 8 H10 L15 14 H9 V18 H7 V14 H1 L6 8 H2 Z" fill="currentColor" />
                   </svg>
                 </div>
-                <div>
-                  <div className={`font-serif-display text-lg leading-none tracking-wide transition-colors duration-500 ${
+                <div className="min-w-0 text-left">
+                  <div className={`font-serif-display text-base sm:text-lg leading-none tracking-wide transition-colors duration-500 truncate ${
                     scrolled || !isHome ? 'text-charcoal' : 'text-ivory'
                   }`}>
                     Eco Tree
                   </div>
-                  <div className={`text-[0.55rem] tracking-[0.25em] uppercase font-medium transition-colors duration-500 ${
+                  <div className={`hidden sm:block text-[0.5rem] sm:text-[0.55rem] tracking-[0.2em] sm:tracking-[0.25em] uppercase font-medium transition-colors duration-500 truncate ${
                     scrolled || !isHome ? 'text-forest' : 'text-stone'
                   }`}>
                     Pokhara, Nepal
@@ -143,7 +145,7 @@ export default function Navigation({ activePage, setActivePage }: NavProps) {
             {/* Mobile menu button */}
             <button
               onClick={() => setMobileOpen(true)}
-              className={`lg:hidden p-2 rounded transition-colors ${
+              className={`lg:hidden p-2.5 -mr-1 rounded transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center ${
                 scrolled || !isHome ? 'text-charcoal' : 'text-ivory'
               }`}
               aria-label="Open menu"

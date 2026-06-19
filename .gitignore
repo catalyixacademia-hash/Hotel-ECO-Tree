@@ -21,3 +21,5 @@ Thumbs.db
 
 # Local tooling
 .cursor/
+
+.vercel
